@@ -57,7 +57,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+bindsym $mod+Sbhift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
@@ -104,7 +104,6 @@ set $ws7 "7:Gibson"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-#; exec --no-startup-id feh --bg-scale ~/Pictures/silent_snow.jpg
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -170,7 +169,7 @@ bar {
         status_command i3status
 }
 
-default_border pixel 3
+default_border pixel 0
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -190,15 +189,14 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Screen shot
-bindsym --release Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+# Take a screenshot upon pressing $mod+x (select an area)
+bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
 
 #restore background
-exec --no-startup-id sh ~/.fehbg
+#exec --no-startup-id sh ~/.fehbg
+# random
+exec --no-startup-id feh /home/flo/Pictures/wallpapers/* --randomize --bg-scale 
+bindsym $mod+n exec --no-startup-id feh /home/flo/Pictures/wallpapers/* --randomize --bg-scale 
 
-exec --no-startup-id i3-msg 'workspace $ws1; append_layout /home/flo/.config/i3/workspace-home.json; exec rxvt-unicode; workspace $ws2; exec google-chrome'
-
-
-
-
-
+bindsym $mod+q exec setxkbmap -layout "ca" -variant "fr"
+bindsym $mod+p exec setxkbmap -layout us
