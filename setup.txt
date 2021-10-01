@@ -1,0 +1,5 @@
+sudo apt install rxvt-unicode 
+sudo update-alternatives --config x-terminal-emulator
+ 
+ git config --global user.email "florence.robert-regol@mail.mcgil.ca"
+ git config --global user.name "floregol"
